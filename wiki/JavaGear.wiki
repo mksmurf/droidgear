@@ -1,4 +1,4 @@
-#labels Phase-QA
+#labels Phase-QA,Featured
 == About JavaGear ==
 
 JavaGear is a highly optimized Sega Master System and Game Gear emulator for Java mobile phones, PCs and browsers.
