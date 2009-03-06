@@ -769,7 +769,6 @@ public class Engine extends Platform
                     // No throttling: faster code if phone is slow
                     //else if (!throttle)
                     {
-                    	long startTime = System.currentTimeMillis();
                     	
                     	if (emulateNextFrame())
                             doRepaint();
@@ -791,16 +790,6 @@ public class Engine extends Platform
 //                            doRepaint();
 //                    	if (emulateNextFrame())
 //                            doRepaint();
-                    	
-                    	
-                    	
-
-                    	worktime = System.currentTimeMillis() - startTime;
-                    	
-                    	Log.v("DEBUG", "time="+worktime);
-                    	
-                    	
-                        
                         
                         //if (minSleep != 0)
                             //Thread.sleep(minSleep);
