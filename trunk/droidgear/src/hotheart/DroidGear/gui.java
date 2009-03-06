@@ -40,12 +40,10 @@ public class gui extends ListActivity {
         this.getListView().setOnCreateContextMenuListener(new OnCreateContextMenuListener()
         {
 
-			@Override
 			public void onCreateContextMenu(ContextMenu menu, View v,
 					final ContextMenuInfo menuInfo) {
 				menu.add(0,1,0,"Remove").setOnMenuItemClickListener( new MenuItem.OnMenuItemClickListener() {
 
-					@Override
 					public boolean onMenuItemClick(MenuItem item) {
 						adapter.infos.remove(((AdapterContextMenuInfo)menuInfo).position);
 						SaveData();
@@ -55,7 +53,6 @@ public class gui extends ListActivity {
 				
 				menu.add(0,2,0,"Start").setOnMenuItemClickListener( new MenuItem.OnMenuItemClickListener() {
 
-					@Override
 					public boolean onMenuItemClick(MenuItem item) {
 						//Start Game
 						GameDefinition game =  adapter.infos.get(((AdapterContextMenuInfo)menuInfo).position);
@@ -69,7 +66,6 @@ public class gui extends ListActivity {
         this.getListView().setOnItemClickListener(new OnItemClickListener()
         {
 
-			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
 					long arg3) {
 				GameDefinition game =  adapter.infos.get(arg2);
