@@ -22,7 +22,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.AdapterView.OnItemClickListener;
 
-public class gui extends ListActivity {
+public class GameListActivity extends ListActivity {
     /** Called when the activity is first created. */
 	GameListAdapter adapter;
     @Override
@@ -126,7 +126,7 @@ public class gui extends ListActivity {
     
     //GUI Add ROM
     public boolean onCreateOptionsMenu(Menu menu) {
-		menu.add(0, 0, 0, "Add ROM");
+		menu.add(0, 0, 0, "Add ROM").setIcon(R.drawable.openrom);
 		return true;
 	}
 
