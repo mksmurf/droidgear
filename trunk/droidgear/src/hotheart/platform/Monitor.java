@@ -69,14 +69,11 @@ public class Monitor extends View {
 
 	@Override
 	public void onDraw(Canvas canvas) {
-		//Engine.engine.Execute();
+		while(!Engine.engine.Execute()) ;
 		Gfx gfx = new Gfx();
 		gfx.g = canvas;
 		gfx.p = new Paint();
-		try {
-			switch (Engine.state) {
-			case Engine.S_EMULATE:
-
+		
 				if (Engine.render != null) {
 					
 					Matrix matrix = new Matrix();
@@ -131,23 +128,8 @@ public class Monitor extends View {
 							canvas.getHeight(), 
 							p);
 				}
-				break;
 
-			case Engine.S_MENU:
-				Engine.engine.paintUI(gfx);
-				break;
-
-			case Engine.S_CLS:
-				Engine.cls(gfx, 0);
-				break;
-			}
-
-		} catch (Exception ex) {
-			ex.printStackTrace();
-		} finally {
-
-		}
 		
-		//invalidate();
+		invalidate();
 	}
 }
