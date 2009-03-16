@@ -45,6 +45,9 @@ public class Monitor extends View {
 
 	// Keyboard update
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		if (keyCode == KeyEvent.KEYCODE_BACK)
+			return false;
+		
 		Engine.keyCode = keyCode;
 		Engine.keyPress(Engine.getKeyMap(keyCode));
 		return true;
@@ -55,6 +58,9 @@ public class Monitor extends View {
 	}
 
 	public boolean onKeyUp(int keyCode, KeyEvent event) {
+		if (keyCode == KeyEvent.KEYCODE_BACK)
+			return false;
+		
 		Engine.keyRelease(Engine.getKeyMap(keyCode));
 		return true;
 	}
