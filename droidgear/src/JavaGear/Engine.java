@@ -48,7 +48,6 @@ import android.util.Log;
 */
 
 public class Engine extends Platform
-    implements Runnable 
 {       
     /** IDs for Platform version */
     public final static int
@@ -716,16 +715,16 @@ public class Engine extends Platform
         }        
     }
     
-    // --------------------------------------------------------------------------------------------
-    // Main Thread
-    // --------------------------------------------------------------------------------------------
-    
-    public synchronized void start() 
-    {
-        thread = new Thread(this);      
-        thread.setPriority(Platform.THREAD_PRIORITY);       
-        thread.start();   
-    }
+//    // --------------------------------------------------------------------------------------------
+//    // Main Thread
+//    // --------------------------------------------------------------------------------------------
+//    
+//    public synchronized void start() 
+//    {
+//        thread = new Thread(this);      
+//        thread.setPriority(Platform.THREAD_PRIORITY);       
+//        thread.start();   
+//    }
     
     public synchronized void stop(boolean waitForClose)
     {
@@ -747,112 +746,112 @@ public class Engine extends Platform
     {
     	return emulateNextFrame();
     }
-    public void run() 
-    {
-    	android.os.Process.setThreadPriority(android.os.Process.THREAD_PRIORITY_FOREGROUND);
-       running = true;
-       
-       try
-       {
-            while (running)
-            {
-                // --------------------------------------------------------------------------------
-                // Main Emulate Loop
-                // --------------------------------------------------------------------------------
-                if (state == S_EMULATE)
-                {
-                    //if (hasKeyPressed(K_MENU))
-                    //{
-                        //initMenu();
-                    //}
-                    
-                    // No throttling: faster code if phone is slow
-                    //else if (!throttle)
-                    {
-                    	
-                    	if (emulateNextFrame())
-                            doRepaint();
+//    public void run() 
+//    {
+//    	android.os.Process.setThreadPriority(android.os.Process.THREAD_PRIORITY_FOREGROUND);
+//       running = true;
+//       
+//       try
+//       {
+//            while (running)
+//            {
+//                // --------------------------------------------------------------------------------
+//                // Main Emulate Loop
+//                // --------------------------------------------------------------------------------
+//                if (state == S_EMULATE)
+//                {
+//                    //if (hasKeyPressed(K_MENU))
+//                    //{
+//                        //initMenu();
+//                    //}
+//                    
+//                    // No throttling: faster code if phone is slow
+//                    //else if (!throttle)
+//                    {
+//                    	
 //                    	if (emulateNextFrame())
 //                            doRepaint();
-//                    	if (emulateNextFrame())
+////                    	if (emulateNextFrame())
+////                            doRepaint();
+////                    	if (emulateNextFrame())
+////                            doRepaint();
+////                    	if (emulateNextFrame())
+////                            doRepaint();
+////                    	if (emulateNextFrame())
+////                            doRepaint();
+////                    	if (emulateNextFrame())
+////                            doRepaint();
+////                    	if (emulateNextFrame())
+////                            doRepaint();
+////                    	if (emulateNextFrame())
+////                            doRepaint();
+////                    	if (emulateNextFrame())
+////                            doRepaint();
+////                    	if (emulateNextFrame())
+////                            doRepaint();
+//                        
+//                        //if (minSleep != 0)
+//                            //Thread.sleep(minSleep);
+//                    }
+//                    // Throttling, also try a minimum sleep per tick
+//                    if (1==0)
+//                    {
+//                        long startTime = System.currentTimeMillis();
+//                        
+//                        emulateNextFrame();emulateNextFrame();emulateNextFrame();
+//                        if (emulateNextFrame())
 //                            doRepaint();
-//                    	if (emulateNextFrame())
-//                            doRepaint();
-//                    	if (emulateNextFrame())
-//                            doRepaint();
-//                    	if (emulateNextFrame())
-//                            doRepaint();
-//                    	if (emulateNextFrame())
-//                            doRepaint();
-//                    	if (emulateNextFrame())
-//                            doRepaint();
-//                    	if (emulateNextFrame())
-//                            doRepaint();
-//                    	if (emulateNextFrame())
-//                            doRepaint();
-                        
-                        //if (minSleep != 0)
-                            //Thread.sleep(minSleep);
-                    }
-                    // Throttling, also try a minimum sleep per tick
-                    if (1==0)
-                    {
-                        long startTime = System.currentTimeMillis();
-                        
-                        emulateNextFrame();emulateNextFrame();emulateNextFrame();
-                        if (emulateNextFrame())
-                            doRepaint();
-                        
-                        if (ID == J2ME)
-                        {                       
-                            long frameTime = System.currentTimeMillis() - startTime;
-                            
-                            if (frameTime < targetFrameTime - minSleep)
-                            {
-                                Thread.sleep(targetFrameTime - frameTime);
-                            }
-                            else if (minSleep != 0)
-                                Thread.sleep(minSleep);
-                        }
-                        else if (ID == J2SE)
-                        {
-                            platformFunction(this, PLATFORM_THROTTLE);   
-                        }
-                    }
-
-                    if (THREAD_YIELD)
-                        Thread.yield();               
-                }
-                
-                // --------------------------------------------------------------------------------
-                // Menu / UI Loop
-                // --------------------------------------------------------------------------------
-                else if (state == S_MENU)
-                {
-                    long startTime = System.currentTimeMillis();
-                    
-                    tickUI();
-                    doRepaint();
-                    
-                    long frameTime = System.currentTimeMillis() - startTime;
-                    
-                    if (frameTime < 60 - minSleep)
-                        Thread.sleep(60 - frameTime);
-                    
-                    if (THREAD_YIELD)
-                        Thread.yield();
-                }
-                
-                tick++;
-                
-            } // End of running loop
-       }
-       catch (Exception e)
-       {
-           if (DEBUG)
-               e.printStackTrace();
-       }
-    }
+//                        
+//                        if (ID == J2ME)
+//                        {                       
+//                            long frameTime = System.currentTimeMillis() - startTime;
+//                            
+//                            if (frameTime < targetFrameTime - minSleep)
+//                            {
+//                                Thread.sleep(targetFrameTime - frameTime);
+//                            }
+//                            else if (minSleep != 0)
+//                                Thread.sleep(minSleep);
+//                        }
+//                        else if (ID == J2SE)
+//                        {
+//                            platformFunction(this, PLATFORM_THROTTLE);   
+//                        }
+//                    }
+//
+//                    if (THREAD_YIELD)
+//                        Thread.yield();               
+//                }
+//                
+//                // --------------------------------------------------------------------------------
+//                // Menu / UI Loop
+//                // --------------------------------------------------------------------------------
+//                else if (state == S_MENU)
+//                {
+//                    long startTime = System.currentTimeMillis();
+//                    
+//                    tickUI();
+//                    doRepaint();
+//                    
+//                    long frameTime = System.currentTimeMillis() - startTime;
+//                    
+//                    if (frameTime < 60 - minSleep)
+//                        Thread.sleep(60 - frameTime);
+//                    
+//                    if (THREAD_YIELD)
+//                        Thread.yield();
+//                }
+//                
+//                tick++;
+//                
+//            } // End of running loop
+//       }
+//       catch (Exception e)
+//       {
+//           if (DEBUG)
+//               e.printStackTrace();
+//       }
+//    }
     
     /**
      * Generate a random integer.

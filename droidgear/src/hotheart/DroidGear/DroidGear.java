@@ -84,7 +84,7 @@ public class DroidGear extends Activity {
     			.show();
         		return;
         	}
-        	engine.start();
+        	//engine.start();
         }
         
         setContentView(mon);
