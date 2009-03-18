@@ -3,7 +3,9 @@ package hotheart.DroidGear;
 import java.io.FileDescriptor;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.ListActivity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -81,15 +83,21 @@ public class GameListActivity extends ListActivity {
     
     void StartGame(GameDefinition game)
     {
-    	//DroidGear act = new DroidGear();
-    	Intent intent = new Intent(); 
-        intent.setClass(this, DroidGear.class);
+    	try
+    	{
+    		Intent intent = new Intent(); 
+    		intent.setClass(this, DroidGear.class);
         
-        Bundle b = new Bundle(); 
-        b.putString(DroidGear.ROM_FILE_NAME, game.FileName); 
-        intent.putExtras(b); 
+    		Bundle b = new Bundle(); 
+    		b.putString(DroidGear.ROM_FILE_NAME, game.FileName); 
+    		intent.putExtras(b); 
         
-        startActivity(intent);
+    		startActivity(intent);
+    	}
+    	catch(Exception e)
+    	{
+    		
+    	}
     }
     
     void SaveData()
@@ -143,20 +151,57 @@ public class GameListActivity extends ListActivity {
 	//Rom load
 	void OnAdd()
     {
-    	Intent intent = new Intent("org.openintents.action.PICK_FILE");
-        intent.setData(Uri.parse("file:///sdcard/"));
-        intent.putExtra("org.openintents.extra.TITLE", "Please select a file");
-        startActivityForResult(intent, 1);
+		try
+		{
+			Intent intent = new Intent("org.openintents.action.PICK_FILE");
+			intent.setData(Uri.parse("file:///sdcard/"));
+			intent.putExtra("org.openintents.extra.TITLE", "Please select a file");
+			startActivityForResult(intent, 1);
+		}
+		catch(Exception e)
+		{
+			new AlertDialog.Builder(this)
+			.setMessage("You must install IO File Manager first!")
+			.setTitle("Critical error!")
+			.setNeutralButton("Close", new DialogInterface.OnClickListener()
+			{
+				public void onClick(DialogInterface dialog, int whichButton)
+				{
+					finish();
+				}
+			})
+			.create().show();
+		}
     }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
+    	try
+    	{
+    		super.onActivityResult(requestCode, resultCode, data);
+    		
+    		if (resultCode == 0)
+    			return;
         
-        String filename = data.getData().getPath();
-        adapter.infos.add(new GameDefinition(filename));
+    		String filename = data.getData().getPath();
+    		adapter.infos.add(new GameDefinition(filename));
         
-        SaveData();
-        setListAdapter(adapter);
+    		SaveData();
+    		setListAdapter(adapter);
+    	}
+		catch(Exception e)
+		{
+			new AlertDialog.Builder(this)
+			.setMessage("You must install IO File Manager first!")
+			.setTitle("Critical error!")
+			.setNeutralButton("Close", new DialogInterface.OnClickListener()
+			{
+				public void onClick(DialogInterface dialog, int whichButton)
+				{
+					finish();
+				}
+			})
+			.create().show();
+		}
     }
 
     @Override

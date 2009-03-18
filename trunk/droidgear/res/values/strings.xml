@@ -2,4 +2,13 @@
 <resources>
     <string name="hello">Hello World, DroidGear</string>
     <string name="app_name">DroidGear</string>
+<string name="controls">
+Start - Space&#xA;
+Fire1 - K&#xA;
+Fire2 - M&#xA;
+Up - W
+Left - A
+Down - S
+Right - D
+</string>
 </resources>

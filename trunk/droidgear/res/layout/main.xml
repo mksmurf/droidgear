@@ -1,12 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    >
-<TextView  
-    android:layout_width="fill_parent" 
-    android:layout_height="wrap_content" 
-    android:text="@string/hello"
-    />
-</LinearLayout>
+<AbsoluteLayout android:id="@+id/widget0"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	xmlns:android="http://schemas.android.com/apk/res/android">
+	<ImageView android:layout_width="fill_parent"
+		android:layout_height="fill_parent" android:layout_x="0px"
+		android:layout_y="0px" android:baselineAlignBottom="false" android:src="@drawable/background">
+	</ImageView>
+	<Button android:id="@+id/startButton" android:layout_width="180px"
+		android:layout_height="47px" android:text="Start game" android:layout_x="70px"
+		android:layout_y="240px">
+	</Button>
+	<Button android:id="@+id/controlHelp" android:layout_width="180px"
+		android:layout_height="47px" android:text="Controls" android:layout_x="70px"
+		android:layout_y="300px">
+	</Button>
+	<Button android:id="@+id/exit" android:layout_width="180px"
+		android:layout_height="47px" android:text="Exit" android:layout_x="70px"
+		android:layout_y="360px">
+	</Button>
+</AbsoluteLayout>
