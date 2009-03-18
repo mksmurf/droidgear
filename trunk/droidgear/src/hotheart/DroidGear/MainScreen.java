@@ -31,6 +31,7 @@ public class MainScreen extends Activity {
 					"Down - S\n"+
 					"Right - D")
 			.setTitle("DroidGear controls help")
+			.setIcon(R.drawable.sonic)
 			.setNeutralButton("Close", new DialogInterface.OnClickListener()
 			{
 				public void onClick(DialogInterface dialog, int whichButton)

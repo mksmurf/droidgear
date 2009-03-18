@@ -160,19 +160,26 @@ public class GameListActivity extends ListActivity {
 		}
 		catch(Exception e)
 		{
-			new AlertDialog.Builder(this)
-			.setMessage("You must install IO File Manager first!")
-			.setTitle("Critical error!")
-			.setNeutralButton("Close", new DialogInterface.OnClickListener()
-			{
-				public void onClick(DialogInterface dialog, int whichButton)
-				{
-					finish();
-				}
-			})
-			.create().show();
+			showIOFileManagerException();
 		}
     }
+	
+	void showIOFileManagerException()
+	{
+		new AlertDialog.Builder(this)
+		.setMessage("You must install IO File Manager first!")
+		.setTitle("Critical error!")
+		.setIcon(R.drawable.sonic)
+		.setNeutralButton("Close", new DialogInterface.OnClickListener()
+		{
+			public void onClick(DialogInterface dialog, int whichButton)
+			{
+				finish();
+			}
+		})
+		.create().show();
+	}
+	
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
     	try
@@ -190,17 +197,7 @@ public class GameListActivity extends ListActivity {
     	}
 		catch(Exception e)
 		{
-			new AlertDialog.Builder(this)
-			.setMessage("You must install IO File Manager first!")
-			.setTitle("Critical error!")
-			.setNeutralButton("Close", new DialogInterface.OnClickListener()
-			{
-				public void onClick(DialogInterface dialog, int whichButton)
-				{
-					finish();
-				}
-			})
-			.create().show();
+			showIOFileManagerException();
 		}
     }
 
