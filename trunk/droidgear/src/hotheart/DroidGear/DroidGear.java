@@ -24,7 +24,8 @@ public class DroidGear extends Activity {
         super.onCreate(savedInstanceState);
         setTheme(android.R.style.Theme_Black_NoTitleBar_Fullscreen);
 		
-		
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR);
+        
 		Bundle b = this.getIntent().getExtras(); 
         String s = b.getString(ROM_FILE_NAME);
         game = new GameDefinition(s);
