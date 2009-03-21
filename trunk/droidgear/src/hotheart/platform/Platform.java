@@ -65,7 +65,7 @@ public class Platform
     // --------------------------------------------------------------------------------------------
         
     /** Default frameskip value */
-    public final static int DEFAULT_FRAMESKIP = 0;
+    public final static int DEFAULT_FRAMESKIP = 4;
     
     /** Turn throttling on by default? */
     public final static boolean DEFAULT_THROTTLE = false;

@@ -55,7 +55,7 @@ public final class Setup
     // --------------------------------------------------------------------------------------------
     
     /** Print timing information on screen */
-    public final static boolean DEBUG_TIMING = false;
+    public final static boolean DEBUG_TIMING = true;
         
     // --------------------------------------------------------------------------------------------
     // CPU Settings
@@ -71,7 +71,7 @@ public final class Setup
      */
     
     /** Do accurate interrupt emulation? (slower!) */
-    public final static boolean ACCURATE_INTERRUPT_EMULATION = BuildSettings.ACCURATE;
+    public final static boolean ACCURATE_INTERRUPT_EMULATION = !BuildSettings.ACCURATE;
     
     // --------------------------------------------------------------------------------------------
     // Lightgun Mode (For the following titles)
@@ -106,7 +106,7 @@ public final class Setup
     */
     
     /** Emulate hardware sprite collisions (not used by many games, and slower) */
-    public final static boolean VDP_SPRITE_COLLISIONS = BuildSettings.ACCURATE;
+    public final static boolean VDP_SPRITE_COLLISIONS = !BuildSettings.ACCURATE;
         
     // --------------------------------------------------------------------------------------------
     // Memory Settings

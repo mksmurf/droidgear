@@ -1033,7 +1033,6 @@ public class Engine extends Platform
             // Draw Next Line
             if (frameskip_counter == 0 && lineno < 192)
             {
-            
                 vdp.drawLine(lineno);               
             } 
             
@@ -1082,51 +1081,7 @@ public class Engine extends Platform
      */
     private final void updateDisplay()
     {
-        if (rotate == 0)
-        {        
-            // Scale image to fit screen with internal code
-            if (screenMode != SM_NORMAL)
-            {
-                scale(display, Vdp.SMS_WIDTH, Vdp.SMS_HEIGHT, 
-                      sourceOffset, sourceWidth, sourceHeight,
-                      scaled, scaledWidth, scaledHeight);
-                render = scaled;
-            }
-            else
-                render = display;
-        } 
-        else
-        {
-            if (rotate == 180)
-            {
-                rotate180(display);
-                if (screenMode != SM_NORMAL)
-                {
-                    scale(rotatedDisplay, Vdp.SMS_WIDTH, Vdp.SMS_HEIGHT, 
-                          sourceOffset, sourceWidth, sourceHeight, 
-                          scaled, scaledWidth, scaledHeight);
-                    render = scaled;
-                }
-                else
-                    render = rotatedDisplay;
-            }
-            // rotate is 90 or 270
-            else
-            {
-                if (rotate == 90) rotate90(display);
-                else if (rotate == 270) rotate270(display);
-                
-                if (screenMode != SM_NORMAL)
-                {
-                    scale(rotatedDisplay, Vdp.SMS_HEIGHT, Vdp.SMS_WIDTH, 
-                          sourceOffset, sourceHeight, sourceWidth, 
-                          scaled, scaledWidth, scaledHeight);
-                    render = scaled;
-                }
-                else
-                    render = rotatedDisplay;
-            }
-        }
+         render = display;
     }
     
     private final void updateSound(int line)

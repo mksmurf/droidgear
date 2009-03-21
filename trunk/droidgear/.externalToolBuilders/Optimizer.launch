@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="org.eclipse.ui.externaltools.ProgramBuilderLaunchConfigurationType">
 <booleanAttribute key="org.eclipse.debug.ui.ATTR_LAUNCH_IN_BACKGROUND" value="false"/>
-<booleanAttribute key="org.eclipse.ui.externaltools.ATTR_BUILDER_ENABLED" value="false"/>
+<booleanAttribute key="org.eclipse.ui.externaltools.ATTR_BUILDER_ENABLED" value="true"/>
 <stringAttribute key="org.eclipse.ui.externaltools.ATTR_LOCATION" value="D:\Android\Obfuscator\proguard4.3\bin\proguard.bat"/>
-<stringAttribute key="org.eclipse.ui.externaltools.ATTR_RUN_BUILD_KINDS" value="full,incremental,"/>
-<stringAttribute key="org.eclipse.ui.externaltools.ATTR_TOOL_ARGUMENTS" value="&quot;-keep public class hotheart.DroidGear.DroidGear&quot;&#13;&#10;&quot;-keep public class hotheart.DroidGear.GameListActivity&quot;&#13;&#10;&quot;-optimizationpasses 7&quot;&#13;&#10;&quot;-overloadaggressively&quot;&#13;&#10;&quot;-verbose&quot;&#13;&#10;&quot;-libraryjars D:\Android\SDK\Android.jar&quot;&#13;&#10;&quot;-dontpreverify&quot;&#13;&#10;&quot;-dontobfuscate&quot;&#13;&#10;&quot;-injars ${build_project}\bin&quot;"/>
+<stringAttribute key="org.eclipse.ui.externaltools.ATTR_RUN_BUILD_KINDS" value="full,incremental,auto,clean"/>
+<stringAttribute key="org.eclipse.ui.externaltools.ATTR_TOOL_ARGUMENTS" value="&quot;-keep public class hotheart.DroidGear.DroidGear&quot;&#13;&#10;&quot;-keep public class hotheart.DroidGear.GameListActivity&quot;&#13;&#10;&quot;-optimizationpasses 9&quot;&#13;&#10;&quot;-overloadaggressively&quot;&#13;&#10;&quot;-verbose&quot;&#13;&#10;&quot;-libraryjars D:\Android\SDK\Android.jar&quot;&#13;&#10;&quot;-dontpreverify&quot;&#13;&#10;&quot;-dontobfuscate&quot;&#13;&#10;&quot;-injars ${build_project}\bin&quot;&#13;&#10;&quot;-outjars ${build_project}\bin&quot;"/>
 <booleanAttribute key="org.eclipse.ui.externaltools.ATTR_TRIGGERS_CONFIGURED" value="true"/>
 <stringAttribute key="org.eclipse.ui.externaltools.ATTR_WORKING_DIRECTORY" value="D:\Android\Obfuscator\proguard4.3\bin"/>
 </launchConfiguration>
